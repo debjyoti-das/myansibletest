@@ -3,6 +3,8 @@
   hosts: localhost
   connection: local
   tasks:
+   - name: 'connect to azure'
+     shell: 'az login --service-principal --username 85bbf54e-2088-44ed-92ad-24be95138b09 --password RH01fpdH8DbMfuy~EfR~jy7c-9xQS6mJUP --tenant 7f50023a-7576-4355-8639-34aa319db751'
    - name: create reosurce group
      azure_rm_resourcegroup:
        name: myAKSRG
