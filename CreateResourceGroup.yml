@@ -1,0 +1,7 @@
+- name: Create a resource group
+  azure_rm_resourcegroup:
+    name: myAKSRG
+    location: westeu
+    tags:
+        purpose: aks
+        delete: never
