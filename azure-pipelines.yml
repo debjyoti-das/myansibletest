@@ -3,7 +3,7 @@ trigger:
 - feature/*
 #put your variabe names 
 variables:
- technology: 'springboot'
+ technology: 'ansible'
  sonaranaysis: 'false'
 resources:
   repositories:
@@ -35,3 +35,8 @@ stages:
   jobs:
   - template: springbootbuild.yaml@applicationtemplates
   condition: eq('${{ variables.technology }}', 'springboot')
+- stage: ansible
+  displayName: ansiblebuild
+  jobs:
+  - template: ansiblebuild.yml@applicationtemplates
+  condition: eq('${{ variables.technology }}', 'ansible')
