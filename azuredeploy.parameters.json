@@ -9,7 +9,7 @@
             "value": "mynewvmforaks@123"
         },
         "dnsLabelPrefix": {
-            "value": "myvm" 
+            "value": "iamkubernetes1983vm" 
         },
         "publicIpName": {
             "value": "myPublicIP"
