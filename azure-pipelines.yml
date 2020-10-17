@@ -1,0 +1,25 @@
+trigger:
+- master
+- feature/*
+#put your variabe names 
+variables:
+ technology: 'springboot'
+ sonaranaysis: 'false'
+resources:
+  repositories:
+  - repository: applicationtemplates
+    type: git
+    name: applicationtemplates
+
+stages:
+- stage: javabuild
+  displayName: javabuild
+  jobs:
+   - job: test
+     pool:
+      vmImage: 'ubuntu-latest'
+     steps:
+      - task: CmdLine@2
+        inputs:
+          script: 'ansible-galaxy install --force --roles-path="roles/" --role-file="roles/requirements.yml"'
+        displayName: 'test'
