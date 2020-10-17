@@ -1,0 +1,29 @@
+---
+- name: Create a resource group
+  hosts: localhost
+  connection: local
+  tasks:
+   - name: 'connect to azure'
+     shell: 'az login --service-principal --username 85bbf54e-2088-44ed-92ad-24be95138b09 --password RH01fpdH8DbMfuy~EfR~jy7c-9xQS6mJUP --tenant 7f50023a-7576-4355-8639-34aa319db751'
+   - name: Create an AKS instance
+     azure_rm_aks:
+      name: myAKS
+      resource_group: mynewAKSRG
+      location: westus
+      dns_prefix: akstest
+      kubernetes_version: 1.14.6
+      linux_profile:
+       admin_username: azureuser
+       ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAA...
+      service_principal:
+       client_id: "cf72ca99-f6b9-4004-b0e0-bee10c521948"
+       client_secret: "Password1234!"
+      agent_pool_profiles:
+       - name: default
+         count: 1
+         vm_size: Standard_DS1_v2
+         enable_auto_scaling: True
+         type: VirtualMachineScaleSets
+         max_count: 3
+         min_count: 1
+         enable_rbac: yes
