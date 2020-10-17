@@ -11,15 +11,27 @@ resources:
     type: git
     name: applicationtemplates
 
+#stages:
+#- stage: javabuild
+#  displayName: javabuild
+#  jobs:
+#   - job: test
+#     pool:
+#      vmImage: 'ubuntu-latest'
+#     steps:
+#      - task: CmdLine@2
+#        inputs:
+#          script: 'ansible-galaxy install --force --roles-path="roles/" --role-file="roles/requirements.yml"'
+#        displayName: 'test'
+
 stages:
 - stage: javabuild
   displayName: javabuild
   jobs:
-   - job: test
-     pool:
-      vmImage: 'ubuntu-latest'
-     steps:
-      - task: CmdLine@2
-        inputs:
-          script: 'ansible-galaxy install --force --roles-path="roles/" --role-file="roles/requirements.yml"'
-        displayName: 'test'
+  - template: javabuild.yaml@applicationtemplates
+  condition: eq('${{ variables.technology }}', 'java')
+- stage: springbootbuild
+  displayName: springbootbuild
+  jobs:
+  - template: springbootbuild.yaml@applicationtemplates
+  condition: eq('${{ variables.technology }}', 'springboot')
