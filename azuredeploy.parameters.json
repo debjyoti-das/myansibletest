@@ -24,7 +24,7 @@
             "value": "Standard_D2s_v3"
         },
         "location": {
-            "value": "westeu"
+            "value": "westeurope"
         },
         "vmName": {
             "value": "mynewvmforaks"
