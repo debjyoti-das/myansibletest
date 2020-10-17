@@ -5,8 +5,10 @@
   tasks:
    - name: 'connect to azure'
      shell: 'az login --service-principal --username 85bbf54e-2088-44ed-92ad-24be95138b09 --password RH01fpdH8DbMfuy~EfR~jy7c-9xQS6mJUP --tenant 7f50023a-7576-4355-8639-34aa319db751'
+   - name: 'connect to azure'
+     shell: 'az --version'
    - name: Create an AKS instance
-     azure.azcollection.azure_rm_aks:
+     azure_rm_aks:
       name: myAKS
       resource_group: mynewAKSRG
       location: westus
