@@ -27,7 +27,7 @@
             "value": "westeurope"
         },
         "vmName": {
-            "value": "mynewvmforaks"
+            "value": "iamkubernetes"
         }
     }
 }
