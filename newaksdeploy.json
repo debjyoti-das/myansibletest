@@ -123,13 +123,13 @@
                     {
                         "name": "agentpool",
                         "osDiskSizeGB": "[parameters('osDiskSizeGB')]",
-                        "count": 2,
+                        "count": 1,
                         "vmSize": "Standard_DS2_v2",
                         "osType": "Linux",
                         "storageProfile": "ManagedDisks",
                         "type": "VirtualMachineScaleSets",
                         "mode": "System",
-                        "maxPods": 110,
+                        "maxPods": 50,
                         "availabilityZones": [
                             "1",
                             "2",
