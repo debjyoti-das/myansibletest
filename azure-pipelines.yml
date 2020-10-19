@@ -4,12 +4,13 @@ trigger:
 #put your variabe names 
 variables:
  technology: 'ansible'
+ armtemplate: 'Templates'
  sonaranaysis: 'false'
 resources:
   repositories:
-  - repository: applicationtemplates
+  - repository: Templates
     type: git
-    name: applicationtemplates
+    name: Templates
 
 #stages:
 #- stage: javabuild
@@ -28,15 +29,20 @@ stages:
 - stage: javabuild
   displayName: javabuild
   jobs:
-  - template: javabuild.yaml@applicationtemplates
+  - template: javabuild.yaml@Templates
   condition: eq('${{ variables.technology }}', 'java')
 - stage: springbootbuild
   displayName: springbootbuild
   jobs:
-  - template: springbootbuild.yaml@applicationtemplates
+  - template: springbootbuild.yaml@Templates
   condition: eq('${{ variables.technology }}', 'springboot')
 - stage: ansible
   displayName: ansiblebuild
   jobs:
-  - template: ansiblebuild.yml@applicationtemplates
-  condition: eq('${{ variables.technology }}', 'ansible')
+  - template: ansiblebuild.yml@Templates
+  condition: eq('${{ variables.technology }}', 'ansible2')
+- stage: armtemplate
+  displayName: armtemplatebuild
+  jobs:
+  - template: ansiblebuild.yml@Templates
+  condition: eq('${{ variables.armtemplate }}', 'Templates')
