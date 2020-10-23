@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceName": {
+            "value": "WeEuS01AKSDEP01"
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "dnsPrefix": {
+            "value": "WeEuS01AKSDEP01-dns"
+        },
+        "kubernetesVersion": {
+            "value": "1.17.11"
+        },
+        "networkPlugin": {
+            "value": "kubenet"
+        },
+        "enableRBAC": {
+            "value": true
+        },
+        "enablePrivateCluster": {
+            "value": false
+        },
+        "enableHttpApplicationRouting": {
+            "value": true
+        },
+        "enableAzurePolicy": {
+            "value": false
+        },
+        "vmssNodePool": {
+            "value": true
+        },
+        "workspaceName": {
+            "value": "DefaultWorkspace-8712f009-8546-45fe-b428-730917f25312-WEU"
+        },
+        "omsWorkspaceId": {
+            "value": "/subscriptions/8712f009-8546-45fe-b428-730917f25312/resourcegroups/defaultresourcegroup-weu/providers/microsoft.operationalinsights/workspaces/defaultworkspace-8712f009-8546-45fe-b428-730917f25312-weu"
+        },
+        "workspaceRegion": {
+            "value": "westeurope"
+        },
+        "acrName": {
+            "value": "WeEuS01DevAkscn01"
+        },
+        "acrResourceGroup": {
+            "value": "WeEu-S01-Dev-Rsg-Akscn-01"
+        }
+    }
+}
